@@ -1,0 +1,72 @@
+﻿<Window x:Class="WpfApp16._2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp16._2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="200">
+    <Canvas>  
+        <Ellipse HorizontalAlignment="Left"
+            Height="7"
+            Margin="0"
+            Stroke="Black" 
+            VerticalAlignment="Top"
+            Width="30" 
+            Canvas.Left="80" Canvas.Top="347" Fill="#FF2B2B2B">
+            <Ellipse.Effect>
+                <BlurEffect Radius="3" x:Name="blurEffect"/>
+            </Ellipse.Effect>
+            <Ellipse.Triggers>
+                <EventTrigger RoutedEvent="Window.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimationUsingKeyFrames
+                                Storyboard.TargetName="blurEffect" 
+                                Storyboard.TargetProperty="Radius"
+                                Duration="0:0:0.4"
+                                RepeatBehavior="Forever"
+                                AutoReverse="True"
+                                AccelerationRatio="1">
+                                <LinearDoubleKeyFrame KeyTime="0%" Value="35"/>
+                                <LinearDoubleKeyFrame KeyTime="99%" Value="3"/>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Ellipse.Triggers>
+        </Ellipse>
+        <Ellipse HorizontalAlignment="Left"
+                 Height="30"
+                 Margin="0"
+                 Stroke="#FF5469A0" 
+                 VerticalAlignment="Top"
+                 Width="30" 
+                 Canvas.Left="80" Canvas.Top="320">
+            <Ellipse.Fill>
+                <RadialGradientBrush GradientOrigin="0.5,0.2">
+                    <GradientStop Color="#FF5469A0" Offset="1"/>
+                    <GradientStop Color="White" Offset="0.2"/>
+                </RadialGradientBrush>
+            </Ellipse.Fill>
+            <Ellipse.Triggers>
+                <EventTrigger RoutedEvent="Window.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimationUsingKeyFrames
+                                Storyboard.TargetProperty ="(Canvas.Top)"
+                                Duration="0:0:.4"
+                                RepeatBehavior="Forever"
+                                AutoReverse="True"
+                                AccelerationRatio="1">
+                                <LinearDoubleKeyFrame KeyTime="0" Value="150"/>
+                                <LinearDoubleKeyFrame KeyTime="99%" Value="320"/>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Ellipse.Triggers>
+        </Ellipse>
+
+    </Canvas>
+</Window>
